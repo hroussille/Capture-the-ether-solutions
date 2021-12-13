@@ -79,7 +79,7 @@ console.log(storageSlotvalue);
 // 0x0000000000000000000000000000000000000000000000000000000000000001
 ```
 
-Alright, so now that we understand how to take advantage of that vulnerability let's use it to solve the challenge. We must write to storage slot 0 and we know that `map[0]` is at storage slot `0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf6`, since the index is of type `uint256` we need to provide an index that will be stored to storage slot 0, meaning that we must find the number `x` where ``0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf6 + x == 2^256`. Given that a `uint256` can only store values up to `2^256 - 1` , reaching `2^256` overflows and loop backs to 0 which is exactly what we want.
+Alright, so now that we understand how to take advantage of that vulnerability let's use it to solve the challenge. We must write to storage slot 0 and we know that `map[0]` is at storage slot `0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf6`, since the index is of type `uint256` we need to provide an index that will be stored to storage slot 0, meaning that we must find the number `x` where `0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf6 + x == 2^256`. Given that a `uint256` can only store values up to `2^256 - 1` , reaching `2^256` overflows and loop backs to 0 which is exactly what we want.
 
 We can find `x` quite easily with :
 
