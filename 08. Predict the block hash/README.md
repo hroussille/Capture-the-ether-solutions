@@ -43,7 +43,7 @@ contract PredictTheBlockHashChallenge {
 
 ## Vulnerability
 
-The issue here is that there is no bound to the number of blocks between the call to `lockInGuess` and `settle`. From solidity's documentation : "blockhash(uint blockNumber) returns (bytes32): hash of the given block when blocknumber is one of the 256 most recent blocks; otherwise returns zero". So we only need to way 256 blocks between the two calls and we know that the result of `bytes32 answer = block.blockhash(settlementBlockNumber)` will be 0 because `settlementBlockNumber` is further than 256 blocks from the current one.
+The issue here is that there is no bound to the number of blocks between the call to `lockInGuess` and `settle`. From solidity's documentation : "blockhash(uint blockNumber) returns (bytes32): hash of the given block when blocknumber is one of the 256 most recent blocks; otherwise returns zero". So we only need to wait 256 blocks between the two calls and we know that the result of `bytes32 answer = block.blockhash(settlementBlockNumber)` will be 0 because `settlementBlockNumber` is further than 256 blocks from the current one.
 
 We can do so very easily :
 
